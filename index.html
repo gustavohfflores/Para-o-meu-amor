@@ -17,6 +17,7 @@
             padding: 0;
             text-align: center;
             overflow-x: hidden;
+            position: relative;
         }
 
         /* Topo */
@@ -42,6 +43,8 @@
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.04);
             margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
         }
         h2 { color: #ff758c; font-size: 1.8rem; margin-top: 0; margin-bottom: 20px; }
 
@@ -152,6 +155,10 @@
             padding: 20px;
             position: relative;
             background-color: #fff9fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
         .coupon-card::before, .coupon-card::after {
             content: ''; position: absolute; top: 50%; width: 20px; height: 20px; background: #ffeef2; border-radius: 50%; transform: translateY(-50%);
@@ -160,7 +167,21 @@
         .coupon-card::after { right: -11px; border-left: 2px dashed #ff7eb3; }
         .coupon-title { font-weight: bold; color: #ff4757; font-size: 1.1rem; margin-bottom: 5px; }
         .coupon-desc { font-size: 0.9rem; color: #666; margin: 0 0 15px 0; }
-        .coupon-badge { display: inline-block; font-size: 0.75rem; background: #ff758c; color: white; padding: 3px 10px; border-radius: 10px; font-weight: bold; }
+        
+        .btn-coupon {
+            background-color: #ff758c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.2s;
+            margin-top: auto;
+        }
+        .btn-coupon:hover { background-color: #ff4757; }
 
         /* 6. Carta Aberta */
         .carta-texto {
@@ -173,13 +194,28 @@
         }
 
         footer { margin: 60px 0 40px 0; color: #ff758c; font-weight: bold; font-size: 1.2rem; }
+
+        /* Estilo do Coração do Clique */
+        .click-heart {
+            position: absolute;
+            font-size: 24px;
+            color: #ff4757;
+            pointer-events: none;
+            z-index: 9999;
+            animation: floatUpHeart 1s ease-out forwards;
+        }
+
+        @keyframes floatUpHeart {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+            100% { transform: translate(-50%, -150%) scale(1.5); opacity: 0; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Para o Meu Amor ❤️</h1>
-        <p>A melhor história que o destino já escreveu para mi.</p>
+        <p>A melhor história que o destino já escreveu para mim.</p>
     </header>
 
     <div class="container">
@@ -269,22 +305,22 @@
         <!-- 5. SEÇÃO CUPONS DO AMOR -->
         <section>
             <h2>Cupons Especiais do Amor 🎟️</h2>
-            <p style="color: #777; font-size: 0.9rem; margin-bottom: 20px;">Tire um print para resgatar quando quiser!</p>
+            <p style="color: #777; font-size: 0.9rem; margin-bottom: 20px;">Clique em resgatar para me enviar uma mensagem direta!</p>
             <div class="cupons-grid">
                 <div class="coupon-card">
                     <div class="coupon-title">Vale um Jantar Especial 🍝</div>
                     <p class="coupon-desc">Eu cozinho o seu prato favorito ou te levo naquele restaurante que você quer muito ir.</p>
-                    <span class="coupon-badge">Uso Único</span>
+                    <a href="https://api.whatsapp.com/send?phone=5541988488088&text=Amor%2C%20acabei%20de%20resgatar%20meu%20Cupom%20de%20Jantar%20Especial!%20%F0%9F%8D%9D%E2%9D%A4%EF%B8%8F" target="_blank" class="btn-coupon">Resgatar Cupom 🎟️</a>
                 </div>
                 <div class="coupon-card">
                     <div class="coupon-title">Vale Massagem Relaxante 💆‍♀️</div>
                     <p class="coupon-desc">Direito a massagem caprichada e sem pressa para esquecer qualquer estresse.</p>
-                    <span class="coupon-badge">Uso Único</span>
+                    <a href="https://api.whatsapp.com/send?phone=5541988488088&text=Amor%2C%20acabei%20de%20resgatar%20meu%20Cupom%20de%20Massagem%20Relaxante!%20%F0%9F%92%86%E2%9D%A4%EF%B8%8F" target="_blank" class="btn-coupon">Resgatar Cupom 🎟️</a>
                 </div>
                 <div class="coupon-card">
                     <div class="coupon-title">Controle do Cinema 🎬</div>
                     <p class="coupon-desc">Você escolhe o filme e a série da vez, e eu prometo não reclamar nem dormir!</p>
-                    <span class="coupon-badge">Uso Único</span>
+                    <a href="https://api.whatsapp.com/send?phone=5541988488088&text=Amor%2C%20acabei%20de%20resgatar%20meu%20Cupom%20de%20Controle%20do%20Cinema!%20%F0%9F%8E%AC%E2%9D%A4%EF%B8%8F" target="_blank" class="btn-coupon">Resgatar Cupom 🎟️</a>
                 </div>
             </div>
         </section>
@@ -295,7 +331,7 @@
             <div class="carta-texto">
                 Minha princesa,
 
-                São algumas linhas, mas vou usar algumas pra tentar expressar um pouco do que sinto, todo meu amor, carinho, orgulho, gratião e imensa felicidade te ter ao meu lado, e espero que isso contiue eternamente.
+                São algumas linhas, mas vou usar algumas pra tentar expressar um pouco do que sinto, todo meu amor, carinho, orgulho, gratidão e imensa felicidade te ter ao meu lado, e espero que isso continue eternamente.
 
                 Obrigado por estar na minha vida, ser minha companhia, por compartilhar seus dias comigo e principalmente, por me amar. Cada dia ao seu lado é um sonho que nunca soube que queria viver, mas percebi que sempre precisei. 
 
@@ -309,7 +345,7 @@
     </div>
 
     <footer>
-        Te amo muito, princesa! 💕
+         Te amo muito, princesa! 💕
     </footer>
 
     <script>
@@ -383,6 +419,24 @@
         }
         window.addEventListener('scroll', checarScroll);
         checarScroll();
+
+        // --- 4. SCRIPT DE INTERAÇÃO: CLIQUE COM CORAÇÃO ---
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('iframe')) return;
+
+            const heart = document.createElement('div');
+            heart.classList.add('click-heart');
+            heart.innerHTML = '❤️';
+            
+            heart.style.left = e.pageX + 'px';
+            heart.style.top = e.pageY + 'px';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        });
     </script>
 </body>
 </html>
